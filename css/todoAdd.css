@@ -1,0 +1,98 @@
+#todoAdd {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  background-color: #562b00;
+  width: 750px;
+  /* width: 100%; */
+  /* margin: 0; */
+
+  /* -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; */
+}
+
+.todoAdd-border {
+  border: 6px solid #562b00;
+  border-radius: 12px;
+  display: block;
+  /* z-index: -1; */
+}
+
+#todoAddInput {
+  height: 80px;
+  width: 630px;
+  padding: 0 20px;
+
+  font-family: "Poor Story", cursive;
+  font-size: 25px;
+  background-color: #fafafa;
+
+  border: none;
+  border-radius: 0;
+
+  border-top-left-radius: 7.5px;
+  border-bottom-left-radius: 7.5px;
+
+  /* -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; */
+  /* caret-color: transparent; */
+}
+#todoAddInput:focus {
+  outline: none;
+  /* background-color: #ececec; */
+  background-color: #ececec;
+}
+/* #todoAddInput::selection {
+  color: red;
+  background-color: blue;
+} */
+#todoAddEnter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 80px;
+  height: 80px;
+  background-color: #bd7e4a;
+  /* background-color: #96613d; */
+  /* background-color: white; */
+
+  border-top-right-radius: 7.5px;
+  border-bottom-right-radius: 7.5px;
+  /* border-radius: 6px; */
+
+  user-select: none;
+}
+#todoAddEnter:active {
+  /* background-color: #5b3a25; */
+  background-color: black;
+}
+/* #todoAddEnter:hover {
+  cursor: pointer;
+  background-color: #a96d3d;
+} */
+/* background-color: #b5754a; */
+#todoAddEnter svg {
+  padding: 22.5px;
+
+  border-top-right-radius: 7.5px;
+  border-bottom-right-radius: 7.5px;
+}
+#todoAddEnter svg:active {
+  /* color: red; */
+  fill: #bd7e4a;
+  background-color: #7f5234;
+}
+
+/* #todoAddEnter svg:hover:not(:active) {
+  fill: #4d2600;
+} */
+/* fill: #482f1e; */

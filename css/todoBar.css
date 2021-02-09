@@ -1,0 +1,85 @@
+#todoBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  /* width: 1400px; */
+  width: 100%;
+  height: 90px;
+  margin: auto;
+  /* margin-top: 400px; */
+  /* background-color: #e1c39d; */
+  /* background-color: rgba(219, 183, 138, 0.4); */
+  background-color: rgba(255, 255, 255, 0.4);
+  /* background-color: #d2a56d; */
+  /* border-radius: 7px; */
+  /* border-top: 10px solid #562b00; */
+  border-top: 10px solid black;
+}
+
+#todoBar .iconClickable {
+  padding: 5px;
+  /* background-color: #d9d9d9; */
+  /* background-color: #f9f3eb; */
+  background-color: #f9f3eb;
+
+  border-radius: 8px;
+}
+
+#todoBar #clearSvg {
+  padding: 10px;
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin: auto 5px;
+}
+
+.dot {
+  margin: 8px auto 4px;
+  /* display: none; */
+}
+
+#checkDot {
+  fill: black;
+}
+
+#leftBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  height: 90px;
+  width: 250px;
+
+  padding: 0 5px;
+}
+
+#rightBar {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
+
+  height: 90px;
+  width: 250px;
+  padding: 0 5px;
+}
+
+#newTodo {
+  border: none;
+  outline: none;
+  width: 350px;
+  height: 65px;
+  margin: 20px;
+  padding-left: 20px;
+
+  font-family: "Poor Story", cursive;
+  font-size: 30px;
+}

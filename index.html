@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Imprima&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/index.css" />
+
+    <title>New Tab</title>
+  </head>
+
+  <body>
+    <header class="nonselectable">
+      <div class="headerDiv" id="weatherDiv"></div>
+      <div class="headerDiv" id="greetingDiv">
+        <p>hello, vhvy!</p>
+      </div>
+    </header>
+
+    <div id="clockDiv"></div>
+
+    <div id="todo" class="nonselectable">
+      <div id="todoListDiv">
+        <div class="todoItem pink">
+          <p>MDN 자바스크립트 공부하기</p>
+          <div class="fl-row-st attContainer">
+            <div class="att">
+              <div class="category"></div>
+            </div>
+            <div class="att">
+              <div class="duetime">
+                <div style="width: 15px; height: 15px; margin: auto auto">
+                  <svg
+                    id="clockSvg"
+                    class="iconClickable"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 12v-6h-2v8h7v-2h-5z"
+                    />
+                  </svg>
+                </div>
+
+                <p>Today</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="todoItem blue"></div>
+        <div class="todoItem"></div>
+        <div class="todoItem"></div>
+      </div>
+
+      <div id="todoBar" class="nonselectable">
+        <div id="leftBar">
+          <div class="icon">
+            <svg
+              id="clockSvg"
+              class="iconClickable"
+              xmlns="http://www.w3.org/2000/svg"
+              width="50"
+              height="50"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 12v-6h-2v8h7v-2h-5z"
+              />
+            </svg>
+
+            <svg
+              class="dot"
+              xmlns="http://www.w3.org/2000/svg"
+              width="7"
+              height="7"
+              viewBox="0 0 24 24"
+              style="display: none"
+            >
+              <circle cx="12" cy="12" r="12" />
+            </svg>
+          </div>
+
+          <div class="icon">
+            <svg
+              id="checkSvg"
+              class="iconClickable"
+              width="50"
+              height="50"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+            >
+              <path
+                d="M24 6.278l-11.16 12.722-6.84-6 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.278zm-22.681 5.232l6.835 6.01-1.314 1.48-6.84-6 1.319-1.49zm9.278.218l5.921-6.728 1.482 1.285-5.921 6.756-1.482-1.313z"
+              />
+            </svg>
+
+            <svg
+              id="checkDot"
+              class="dot"
+              xmlns="http://www.w3.org/2000/svg"
+              width="7"
+              height="7"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="12" r="12" />
+            </svg>
+          </div>
+        </div>
+
+        <input
+          type="text"
+          name=""
+          id="newTodo"
+          placeholder="새 할일 입력하기.."
+        />
+
+        <div id="rightBar">
+          <div class="icon">
+            <svg
+              id="clearSvg"
+              class="iconClickable"
+              width="40"
+              height="40"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+            >
+              <path
+                d="M5.662 23l-5.369-5.365c-.195-.195-.293-.45-.293-.707 0-.256.098-.512.293-.707l14.929-14.928c.195-.194.451-.293.707-.293.255 0 .512.099.707.293l7.071 7.073c.196.195.293.451.293.708 0 .256-.097.511-.293.707l-11.216 11.219h5.514v2h-12.343zm3.657-2l-5.486-5.486-1.419 1.414 4.076 4.072h2.829zm.456-11.429l-4.528 4.528 5.658 5.659 4.527-4.53-5.657-5.657z"
+              />
+            </svg>
+          </div>
+
+          <div class="icon">
+            <svg
+              id="editSvg"
+              class="iconClickable"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="50"
+              height="50"
+            >
+              <path
+                d="M19.472 6.835l1.708 1.707-9.281 9.378-2.23.472.511-2.169 9.292-9.388zm-.007-2.835l-11.104 11.216-1.361 5.784 5.898-1.248 11.103-11.218-4.536-4.534zm-19.464 15l-.001 2h5v-2h-4.999z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="todoAdd-border" id="todoAdd">
+      <input
+        id="todoAddInput"
+        type="text"
+        size="20"
+        placeholder="할 일을 입력하세요..."
+      />
+      <div
+        class="help"
+        style="display: inline-block; width: 80px; height: 80px"
+      >
+        <div id="todoAddEnter">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="35"
+            height="35"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M24 0l-6 22-8.129-7.239 7.802-8.234-10.458 7.227-7.215-1.754 24-12zm-15 16.668v7.332l3.258-4.431-3.258-2.901z"
+            />
+          </svg>
+          <!-- <img src="./iconmonstr-paper-plane-1.svg" alt="" /> -->
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

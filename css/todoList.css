@@ -1,0 +1,86 @@
+#todoListDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 1400px;
+  height: 550px;
+  /* margin: auto auto 20px; */
+  margin: 50px auto 40px;
+  /* background-color: antiquewhite; */
+}
+
+.todoItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 450px;
+  height: 40px;
+  background-color: white;
+  margin: 10px auto;
+
+  border-radius: 20px;
+  border: 2px solid #562b00;
+}
+.todoItem p {
+  width: 250px;
+  display: inline;
+  margin: 0 20px;
+  /* font-size: 14px; */
+  text-align: start;
+}
+
+.att {
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  /* background-color: white; */
+  /* font-size: 13px; */
+}
+.att p {
+  margin: 0 3px;
+}
+.att svg {
+  /* margin: 0 2px; */
+}
+
+.duetime {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 55px;
+  height: 30px;
+  padding: 0;
+  margin: 0;
+}
+.duetime p {
+  font-size: 13px;
+  text-align: center;
+}
+
+.pink {
+  background-color: pink;
+}
+
+.blue {
+  background-color: skyblue;
+}
+
+.fl-row-st {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.attContainer {
+  width: 120px;
+  height: 30px;
+  /* position: relative;
+  right: 0px; */
+}
