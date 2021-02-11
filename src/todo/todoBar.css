@@ -5,17 +5,19 @@
   align-items: center;
 
   /* width: 1400px; */
-  width: 100%;
+  width: 50%;
   height: 90px;
   margin: auto;
+  margin-top: 60px;
+  margin-bottom: 150px;
   /* margin-top: 400px; */
   /* background-color: #e1c39d; */
   /* background-color: rgba(219, 183, 138, 0.4); */
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.3);
   /* background-color: #d2a56d; */
   /* border-radius: 7px; */
   /* border-top: 10px solid #562b00; */
-  border-top: 10px solid black;
+  /* border-top: 10px solid black; */
 }
 
 #todoBar .iconClickable {
@@ -81,5 +83,5 @@
   padding-left: 20px;
 
   font-family: "Poor Story", cursive;
-  font-size: 30px;
+  font-size: 25px;
 }

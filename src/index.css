@@ -1,0 +1,60 @@
+@import "header.css";
+@import "clock/clock.css";
+@import "todo/todo.css";
+
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; */
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 0 100px;
+
+  /* background-color: #d2a56d; */
+  /* background-color: #141c34; */
+  background: url("../ignore/1827134.jpg");
+}
+/* iframe { */
+/* display: block; */
+/* } */
+
+#todo {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: flex-start;
+  /* width: 80%; */
+  width: 100%;
+}
+
+#setUserNameIframe {
+  /* display: none; */
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  /* width: 100%;
+  height: 100%; */
+  background-color: rgba(0, 0, 0, 0.6);
+
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+}
+
+.nonselectable {
+  user-select: none;
+}
+
+/* .help:active {
+  background-color: #baa89b;
+} */

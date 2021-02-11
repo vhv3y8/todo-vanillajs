@@ -1,0 +1,77 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  height: 80px;
+  margin-bottom: 0px;
+}
+
+.headerDiv {
+  margin: 10px 15px auto;
+  background-color: white;
+}
+
+#weatherDiv {
+  width: 150px;
+  height: 80px;
+}
+
+#greetingDiv {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 400px;
+  height: 50px;
+  padding-top: 0px;
+  margin: 8px;
+  margin-right: 12px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 10px;
+}
+
+/* #menuIcon {
+  fill: white;
+  background-color: white;
+  color: white;
+} */
+
+#greetingDiv div {
+  height: 42px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: auto 5px;
+}
+
+#greetingText {
+  font-family: "Imprima", sans-serif;
+  font-size: 18px;
+  color: white;
+  margin: 3px 10px 6px auto;
+}
+
+#settingSvg {
+  margin: 3.3px;
+  /* padding-top: 2.5px;
+  padding-bottom: 2.5px; */
+}
+
+#menuSvg {
+  margin-top: 2.5px;
+  margin-bottom: 2.5px;
+
+  padding: 7.5px;
+}
+
+.menuSvg {
+  padding: 5px;
+  margin: 5px;
+  fill: white;
+  border-radius: 2.5px;
+}
