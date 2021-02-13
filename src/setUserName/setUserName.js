@@ -14,11 +14,13 @@ function setUserName() {
   // add submit and cancel event listener
   innerModal.querySelector("#getName").addEventListener("submit", function (e) {
     e.preventDefault();
+    console.log("Submit.");
 
     let name = innerModal.querySelector("#getName input").value;
     console.log(name);
     if (name !== "") {
       localStorage.setItem(Consts.USER_NAME, name);
+      localStorage.setItem(Consts.NO_NAME, false);
 
       // close modal page
       modal.style.display = "none";
@@ -34,7 +36,7 @@ function setUserName() {
     localStorage.setItem(Consts.NO_NAME, true);
 
     // update greeting message
-    // greetingInit();
+    greetingInit();
   });
 }
 

@@ -4,28 +4,40 @@ import { Consts } from "../Consts.js";
 const greetingText = document.querySelector("#greetingText");
 
 function init() {
-  // TODO: NO_NAME을 구현해야한다.
-
-  const user = localStorage.getItem(Consts.USER_NAME);
-  // console.log(user);
-  if (user === null) {
-    console.log("user is null");
-    // show initial page to get name
-    setUserName();
-    // init();
+  let noname = localStorage.getItem(Consts.NO_NAME);
+  if (noname === "true") {
+    console.log("No Name");
+    greetingText.innerHTML = getMessage(false, new Date().getHours());
   } else {
-    greetingText.innerHTML = getMessage(new Date().getHours(), user);
+    console.log("Use Name");
+    const userName = localStorage.getItem(Consts.USER_NAME);
+    // console.log(user);
+    if (userName === null) {
+      console.log("user is null");
+      // show initial page to get name
+      setUserName();
+      // init();
+    } else {
+      greetingText.innerHTML = getMessage(
+        true,
+        new Date().getHours(),
+        userName
+      );
+    }
   }
 }
 
-function getMessage(time, user) {
+function getMessage(useName, hour, name) {
   function pickRandom(timeText) {
     const message = {
-      morning: [["Good Morning,", "!"]],
-      lunch: [["Enjoy your lunch,", "!"]],
-      afternoon: [["Good Afternoon,", "."]],
-      evening: [["Good Evening,", "."]],
-      night: [["Good Night,", "."]],
+      morning: [
+        ["Good Morning", ",", "!"],
+        ["Have a good day", ",", "!"],
+      ],
+      lunch: [["Enjoy your lunch", ",", "!"]],
+      afternoon: [["Good Afternoon", ",", "."]],
+      evening: [["Good Evening", ",", "."]],
+      night: [["Good Night", ",", "."]],
     };
 
     let texts = message[timeText];
@@ -35,22 +47,24 @@ function getMessage(time, user) {
 
   // flow start
   let timeText;
-  console.log("time is " + time);
-  if (5 <= time && time <= 10) {
+  console.log("time is " + hour);
+  if (5 <= hour && hour <= 10) {
     timeText = "morning";
-  } else if (11 <= time && time <= 14) {
+  } else if (11 <= hour && hour <= 14) {
     timeText = "lunch";
-  } else if (15 <= time && time <= 20) {
+  } else if (15 <= hour && hour <= 20) {
     timeText = "afternoon";
-  } else if (21 <= time && time <= 24) {
+  } else if (21 <= hour && hour <= 24) {
     timeText = "evening";
   } else {
     timeText = "night";
   }
 
-  let [greetingMessage, endChar] = pickRandom(timeText);
+  let [greetingMessage, midChar, endChar] = pickRandom(timeText);
 
-  return `${greetingMessage} ${user}${endChar}`;
+  return useName
+    ? `${greetingMessage}${midChar} ${name}${endChar}`
+    : `${greetingMessage}${endChar}`;
 }
 
 export { init };

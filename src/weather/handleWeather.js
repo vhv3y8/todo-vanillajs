@@ -1,14 +1,35 @@
 import { Consts } from "../Consts.js";
 
 function init() {
+  document.querySelector("#refreshIcon").addEventListener("click", function () {
+    setTimeout(() => {
+      updateWeather();
+    }, 9000);
+  });
+
+  // flow start
+  updateWeather();
+}
+
+function updateWeather() {
+  console.log("Updating Weather.");
   const weatherDiv = document.querySelector("#weatherDiv");
-  const API_KEY = "9751f85190bca83e7868d6b71943a1aa";
 
   const coordsStr = localStorage.getItem(Consts.COORDS);
   const coordsObj = JSON.parse(coordsStr);
   if (coordsObj !== null) {
     console.log(coordsObj);
-    // TODO: get weather
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${coordsObj.latitude}&lon=${coordsObj.longitude}&appid=${Consts.API_KEY}&units=metric`
+    )
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (json) {
+        weatherDiv.querySelector(
+          "p"
+        ).innerHTML = `${json.name} @ ${json.main.temp}`;
+      });
   } else {
     navigator.geolocation.getCurrentPosition(gotPosition, () => {
       console.log("Getting geo location Failed.");

@@ -35,41 +35,66 @@
     <title>New Tab</title>
   </head>
 
-  <body tabindex="-1">
+  <body>
     <iframe
       id="setUserNameIframe"
       src="./setUserName/setUserName.html"
       frameborder="0"
       onload="this.width=document.body.offsetWidth;this.height=document.body.offsetHeight;"
       style="display: none"
-      tabindex="-1"
     ></iframe>
     <!-- window.screen -->
     <!-- width="100%"
       height="100%" -->
     <!-- style="position: absolute; height: 100%; border: none" -->
     <header class="nonselectable">
-      <div class="headerDiv" id="weatherDiv"></div>
-      <div class="headerDiv" id="greetingDiv">
-        <div>
-          <img
-            class="menuSvg"
-            id="menuSvg"
-            src="../assets/buttonsymbolofninedots_80014.svg"
-            alt=""
+      <div class="headerDiv" id="weatherDiv">
+        <p></p>
+        <svg
+          id="refreshIcon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="white"
+        >
+          <path
+            d="M9 12l-4.463 4.969-4.537-4.969h3c0-4.97 4.03-9 9-9 2.395 0 4.565.942 6.179 2.468l-2.004 2.231c-1.081-1.05-2.553-1.699-4.175-1.699-3.309 0-6 2.691-6 6h3zm10.463-4.969l-4.463 4.969h3c0 3.309-2.691 6-6 6-1.623 0-3.094-.65-4.175-1.699l-2.004 2.231c1.613 1.526 3.784 2.468 6.179 2.468 4.97 0 9-4.03 9-9h3l-4.537-4.969z"
           />
-          <svg
-            id="settingSvg"
-            class="menuSvg"
-            xmlns="http://www.w3.org/2000/svg"
-            width="27"
-            height="27"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M24 14.187v-4.374c-2.148-.766-2.726-.802-3.027-1.529-.303-.729.083-1.169 1.059-3.223l-3.093-3.093c-2.026.963-2.488 1.364-3.224 1.059-.727-.302-.768-.889-1.527-3.027h-4.375c-.764 2.144-.8 2.725-1.529 3.027-.752.313-1.203-.1-3.223-1.059l-3.093 3.093c.977 2.055 1.362 2.493 1.059 3.224-.302.727-.881.764-3.027 1.528v4.375c2.139.76 2.725.8 3.027 1.528.304.734-.081 1.167-1.059 3.223l3.093 3.093c1.999-.95 2.47-1.373 3.223-1.059.728.302.764.88 1.529 3.027h4.374c.758-2.131.799-2.723 1.537-3.031.745-.308 1.186.099 3.215 1.062l3.093-3.093c-.975-2.05-1.362-2.492-1.059-3.223.3-.726.88-.763 3.027-1.528zm-4.875.764c-.577 1.394-.068 2.458.488 3.578l-1.084 1.084c-1.093-.543-2.161-1.076-3.573-.49-1.396.581-1.79 1.693-2.188 2.877h-1.534c-.398-1.185-.791-2.297-2.183-2.875-1.419-.588-2.507-.045-3.579.488l-1.083-1.084c.557-1.118 1.066-2.18.487-3.58-.579-1.391-1.691-1.784-2.876-2.182v-1.533c1.185-.398 2.297-.791 2.875-2.184.578-1.394.068-2.459-.488-3.579l1.084-1.084c1.082.538 2.162 1.077 3.58.488 1.392-.577 1.785-1.69 2.183-2.875h1.534c.398 1.185.792 2.297 2.184 2.875 1.419.588 2.506.045 3.579-.488l1.084 1.084c-.556 1.121-1.065 2.187-.488 3.58.577 1.391 1.689 1.784 2.875 2.183v1.534c-1.188.398-2.302.791-2.877 2.183zm-7.125-5.951c1.654 0 3 1.346 3 3s-1.346 3-3 3-3-1.346-3-3 1.346-3 3-3zm0-2c-2.762 0-5 2.238-5 5s2.238 5 5 5 5-2.238 5-5-2.238-5-5-5z"
-            />
-          </svg>
+        </svg>
+      </div>
+      <div class="headerDiv greetingDiv">
+        <div>
+          <details>
+            <summary>
+              <img
+                class="menuSvg"
+                id="menuSvg"
+                src="../assets/buttonsymbolofninedots_80014.svg"
+                alt=""
+              />
+            </summary>
+            <div id="detailsDots" class="detailsContent"></div>
+          </details>
+          <details>
+            <summary>
+              <span id="settingSvgSpan">
+                <svg
+                  id="settingSvg"
+                  class="menuSvg"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="27"
+                  height="27"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M24 14.187v-4.374c-2.148-.766-2.726-.802-3.027-1.529-.303-.729.083-1.169 1.059-3.223l-3.093-3.093c-2.026.963-2.488 1.364-3.224 1.059-.727-.302-.768-.889-1.527-3.027h-4.375c-.764 2.144-.8 2.725-1.529 3.027-.752.313-1.203-.1-3.223-1.059l-3.093 3.093c.977 2.055 1.362 2.493 1.059 3.224-.302.727-.881.764-3.027 1.528v4.375c2.139.76 2.725.8 3.027 1.528.304.734-.081 1.167-1.059 3.223l3.093 3.093c1.999-.95 2.47-1.373 3.223-1.059.728.302.764.88 1.529 3.027h4.374c.758-2.131.799-2.723 1.537-3.031.745-.308 1.186.099 3.215 1.062l3.093-3.093c-.975-2.05-1.362-2.492-1.059-3.223.3-.726.88-.763 3.027-1.528zm-4.875.764c-.577 1.394-.068 2.458.488 3.578l-1.084 1.084c-1.093-.543-2.161-1.076-3.573-.49-1.396.581-1.79 1.693-2.188 2.877h-1.534c-.398-1.185-.791-2.297-2.183-2.875-1.419-.588-2.507-.045-3.579.488l-1.083-1.084c.557-1.118 1.066-2.18.487-3.58-.579-1.391-1.691-1.784-2.876-2.182v-1.533c1.185-.398 2.297-.791 2.875-2.184.578-1.394.068-2.459-.488-3.579l1.084-1.084c1.082.538 2.162 1.077 3.58.488 1.392-.577 1.785-1.69 2.183-2.875h1.534c.398 1.185.792 2.297 2.184 2.875 1.419.588 2.506.045 3.579-.488l1.084 1.084c-.556 1.121-1.065 2.187-.488 3.58.577 1.391 1.689 1.784 2.875 2.183v1.534c-1.188.398-2.302.791-2.877 2.183zm-7.125-5.951c1.654 0 3 1.346 3 3s-1.346 3-3 3-3-1.346-3-3 1.346-3 3-3zm0-2c-2.762 0-5 2.238-5 5s2.238 5 5 5 5-2.238 5-5-2.238-5-5-5z"
+                  />
+                </svg>
+              </span>
+            </summary>
+            <div id="detailsSetting" class="detailsContent"></div>
+          </details>
         </div>
         <p id="greetingText">Have a good day!</p>
       </div>
@@ -81,22 +106,42 @@
 
     <div id="todo" class="nonselectable">
       <div id="todoListDiv">
-        <!-- <div class="todoItem pink">
-          <p>MDN 자바스크립트 공부하기</p>
+        <div class="todoItem">
+          <div class="fl-cen-cen">
+            <p>MDN 자바스크립트 공부하기</p>
+          </div>
           <div class="fl-row-st attContainer">
-            <div class="att">
-              <div class="category"></div>
-            </div>
+            <!-- <div class="att">
+              <div class="category fl-row-st">
+                <svg
+                  id="checkSvg"
+                  class="iconClickable"
+                  width="17"
+                  height="17"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  fill="white"
+                >
+                  <path
+                    d="M24 6.278l-11.16 12.722-6.84-6 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.278zm-22.681 5.232l6.835 6.01-1.314 1.48-6.84-6 1.319-1.49zm9.278.218l5.921-6.728 1.482 1.285-5.921 6.756-1.482-1.313z"
+                  />
+                </svg>
+                <p>JavaScript</p>
+              </div>
+            </div> -->
             <div class="att">
               <div class="duetime">
-                <div style="width: 15px; height: 15px; margin: auto auto">
+                <div style="width: 15px; height: 15px; margin: auto 5px">
                   <svg
                     id="clockSvg"
                     class="iconClickable"
                     xmlns="http://www.w3.org/2000/svg"
-                    width="15"
-                    height="15"
+                    width="16"
+                    height="16"
                     viewBox="0 0 24 24"
+                    fill="white"
                   >
                     <path
                       d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 12v-6h-2v8h7v-2h-5z"
@@ -109,9 +154,9 @@
             </div>
           </div>
         </div>
-        <div class="todoItem blue"></div>
         <div class="todoItem"></div>
-        <div class="todoItem"></div> -->
+        <div class="todoItem"></div>
+        <div class="todoItem"></div>
       </div>
 
       <div id="todoBar" class="nonselectable">

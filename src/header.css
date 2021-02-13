@@ -17,9 +17,18 @@ header {
 #weatherDiv {
   width: 150px;
   height: 80px;
+  background-color: rgba(255, 255, 255, 0);
 }
 
-#greetingDiv {
+#weatherDiv p {
+  color: white;
+  font-family: "Imprima", sans-serif;
+  font-size: 20px;
+  margin: 0;
+  margin-top: 5px;
+}
+
+.greetingDiv {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-start;
@@ -40,13 +49,68 @@ header {
   color: white;
 } */
 
-#greetingDiv div {
-  height: 42px;
+.greetingDiv div {
+  /* width: 90px;
+  height: 42px; */
+
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   margin: auto 5px;
+}
+
+.greetingDiv details,
+.greetingDiv summary,
+#settingSvgSpan {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  width: 42px;
+  height: 42px;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+}
+
+/* .greetingDiv details:not(:focus-within) .detailsContent {
+  visibility: hidden;
+} */
+/* .greetingDiv details:focus-within .detailsContent {
+  visibility: visible;
+} */
+
+.detailsContent {
+  position: absolute;
+  /* width: calc(100%-40px); */
+  width: 220px;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  /* margin-left: -20px; */
+  right: -7px;
+  border-radius: 15px;
+}
+
+#detailsDots {
+  margin-top: 6px;
+  right: -50px;
+}
+#detailsDots::before {
+  position: absolute;
+  bottom: 100%;
+  left: 67.3%;
+  /* margin-top: -10px; */
+  content: "";
+  /* width: 40px;
+  height: 10px; */
+  border-width: 9px;
+  border-style: solid;
+  border-color: transparent transparent rgba(255, 255, 255, 0.9) transparent;
 }
 
 #greetingText {
@@ -57,7 +121,9 @@ header {
 }
 
 #settingSvg {
-  margin: 3.3px;
+  /* margin: 3.3px; */
+  /* margin: 2.5px 3.3px; */
+  margin: 2.5px;
   /* padding-top: 2.5px;
   padding-bottom: 2.5px; */
 }
@@ -74,4 +140,79 @@ header {
   margin: 5px;
   fill: white;
   border-radius: 2.5px;
+  transition: all 0.2s;
 }
+
+.menuSvg:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+.menuSvg:active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+/* transition: clickIcon 3s 1s; */
+
+@keyframes clickIcon {
+  50% {
+    /* background-color: rgba(255, 255, 255, 0.4); */
+    /* background-color: red; */
+    background-color: black;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes blinking {
+  from {
+    opacity: 1;
+    /* background-color: green; */
+    /* color: green; */
+    /* transform: rotate(360deg); */
+  }
+  50% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    /* background-color: red; */
+    /* color: red; */
+    /* transform: rotate(0deg); */
+  }
+}
+
+.blinkFast {
+  animation-name: blinking;
+  animation-duration: 0.05s;
+  /* animation-iteration-count: 1; */
+}
+
+.rotate {
+  fill: rgba(255, 255, 255, 0.5);
+  animation-name: rotation;
+  animation-duration: 0.6s;
+  animation-iteration-count: 1;
+  animation-delay: 0.3s;
+}
+
+#refreshIcon {
+  margin: 6px auto;
+}
+#refreshIcon:hover {
+  fill: rgba(255, 255, 255, 0.8);
+}
+#refreshIcon:active {
+  fill: rgba(255, 255, 255, 0.2);
+}
+/* #refreshIcon:active:after {
+  fill: red;
+  animation: rotation 0.6s;
+} */
