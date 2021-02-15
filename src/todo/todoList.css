@@ -1,15 +1,24 @@
 #todoListDiv {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-
-  width: 1400px;
-  height: 350px;
-  /* margin: auto auto 20px; */
-  margin: 70px auto 40px;
+  height: 40vh;
+  width: 100%;
+  margin: 0;
   /* background-color: antiquewhite; */
+  overflow-y: scroll;
 }
+#todoListDiv::-webkit-scrollbar {
+  display: none;
+}
+/* width: 1400px; */
+/* width: 50%; */
+/* width: 80%; */
+
+/* height: 350px; */
+/* margin: auto auto 20px; */
+/* margin: 70px auto 40px; */
+/* #todoListDiv:hover { */
+/* animation: todoListMargin 5s forwards; */
+/* animation-iteration-count: 1; */
+/* } */
 
 .todoItem {
   display: flex;
@@ -18,9 +27,16 @@
   align-items: center;
   position: relative;
 
-  width: 570px;
-  height: 40px;
-  background-color: rgba(255, 255, 255, 0);
+  /* width: 570px; */
+  /* width: 66%; */
+  /* width: 60%; */
+  /* width: 37.5%; */
+  /* width: 35em; */
+  width: 30.5%;
+  /* height: 40px; */
+  height: 3em;
+  /* background-color: rgba(255, 255, 255, 0); */
+  /* background-color: aqua; */
   margin: 10px auto;
 
   border-radius: 3px;
@@ -30,7 +46,7 @@
   font-family: "Poor story", sans-serif;
   font-size: 23px;
   color: white;
-  width: 250px;
+  /* width: 250px; */
   display: inline;
   margin: 0 20px;
   /* font-size: 14px; */
@@ -57,69 +73,42 @@
   border-top: 1.5px solid white;
   visibility: hidden;
 }
+._removeTodoItemEffect.todoItem::after {
+  /* visibility: hidden; */
+  /* position: relative; */
+  height: 0;
+  /* display: none; */
+  /* background-color: red; */
+  border: none;
+}
 
 .todoItem._checked::after {
   visibility: visible;
 }
 
-.att {
-  display: inline-block;
-  width: 70px;
-  height: 30px;
-  /* background-color: white; */
-  /* font-size: 13px; */
+.textContainer {
+  width: 70%;
 }
-.att p {
-  margin: 0 3px;
-}
-.att svg {
-  /* margin: 0 2px; */
-}
-
-.duetime {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-
-  width: 65px;
-  height: 30px;
-  padding: 0;
-  margin: 0;
-}
-.duetime p {
-  font-size: 19px;
-  text-align: center;
-}
-
-/* .category p {
-  font-size: 17px;
-  text-align: center;
-} */
-
-.pink {
-  background-color: pink;
-}
-
-.blue {
-  background-color: skyblue;
-}
-
-.fl-row-st {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-}
-.fl-cen-cen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.textContainer p {
+  /* margin-left: 10%; */
+  margin-left: 10%;
 }
 
 .attContainer {
-  width: 80px;
-  height: 30px;
+  /* width: 30%; */
+  height: 100%;
   /* position: relative;
   right: 0px; */
+}
+
+/* @media screen and (max-width: 1600px) {
+  .todoItem {
+    width: 40%;
+  }
+} */
+
+@media screen and (max-width: 800px) {
+  .todoItem {
+    width: 70%;
+  }
 }

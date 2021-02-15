@@ -21,12 +21,20 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- <link rel="shortcut icon" href="https://dummyimage.com/16x16/ff/ff.png" /> -->
     <link
       href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII="
       rel="icon"
       type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+      rel="stylesheet"
     />
 
     <link rel="stylesheet" href="./index.css" />
@@ -35,18 +43,7 @@
     <title>New Tab</title>
   </head>
 
-  <body>
-    <iframe
-      id="setUserNameIframe"
-      src="./setUserName/setUserName.html"
-      frameborder="0"
-      onload="this.width=document.body.offsetWidth;this.height=document.body.offsetHeight;"
-      style="display: none"
-    ></iframe>
-    <!-- window.screen -->
-    <!-- width="100%"
-      height="100%" -->
-    <!-- style="position: absolute; height: 100%; border: none" -->
+  <body class="fl-col-st">
     <header class="nonselectable">
       <div class="headerDiv" id="weatherDiv">
         <p></p>
@@ -63,7 +60,7 @@
           />
         </svg>
       </div>
-      <div class="headerDiv greetingDiv">
+      <div class="headerDiv greetingDiv fl-row-rev">
         <div>
           <details>
             <summary>
@@ -74,7 +71,37 @@
                 alt=""
               />
             </summary>
-            <div id="detailsDots" class="detailsContent"></div>
+            <div id="detailsDots" class="detailsContent">
+              <div>
+                <div
+                  id="mode_todoBar"
+                  class="dotsMenuItem fl-row-st _modeSelected"
+                >
+                  <label>
+                    <!-- <input type="radio" name="dots" id="" checked /> -->
+                    <span>To Do List</span>
+                  </label>
+                </div>
+                <div id="mode_clockOnly" class="dotsMenuItem fl-row-st">
+                  <label>
+                    <!-- <input type="radio" name="dots" id="" /> -->
+                    <span>Clock Only</span>
+                  </label>
+                </div>
+                <div id="mode_quotes" class="dotsMenuItem fl-row-st">
+                  <label>
+                    <!-- <input type="radio" name="dots" id="" /> -->
+                    <span>Random Quotes</span>
+                  </label>
+                </div>
+                <div id="mode_turnOff" class="dotsMenuItem fl-row-st">
+                  <label>
+                    <!-- <input type="radio" name="dots" id="" /> -->
+                    <span>Empty Screen</span>
+                  </label>
+                </div>
+              </div>
+            </div>
           </details>
           <details>
             <summary>
@@ -93,7 +120,48 @@
                 </svg>
               </span>
             </summary>
-            <div id="detailsSetting" class="detailsContent"></div>
+            <div id="detailsSetting" class="detailsContent">
+              <div>
+                <div
+                  id="setting_username"
+                  class="settingItem fl-row-st setting_onlyText"
+                >
+                  <span>Get/Change UserName</span>
+                </div>
+                <div id="setting_location" class="settingItem fl-row-st">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    style="margin-left: 0.5em"
+                  >
+                    <path
+                      d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"
+                    />
+                  </svg>
+                  <span style="padding-left: 0.5em"> Update Location</span>
+                </div>
+                <div
+                  id="setting_randomBGC"
+                  class="settingItem fl-row-st setting_onlyText"
+                >
+                  <span>Random Background Color</span>
+                </div>
+                <div id="setting_toggleRandomBGG" class="settingItem fl-row-st">
+                  <span id="toggleLabel">
+                    <input type="checkbox" />
+                    <span>Random Color on New Tab</span>
+                  </span>
+                </div>
+                <div id="setting_AmPm" class="settingItem fl-row-st">
+                  <span>
+                    <input type="checkbox" />
+                    <span>Use AM/PM</span>
+                  </span>
+                </div>
+              </div>
+            </div>
           </details>
         </div>
         <p id="greetingText">Have a good day!</p>
@@ -101,56 +169,42 @@
     </header>
 
     <div id="clockDiv" class="nonselectable">
-      <p></p>
+      <p class="fl-cen-cen">
+        <span class="time"></span>
+        <span class="ampm"></span>
+      </p>
     </div>
 
-    <div id="todo" class="nonselectable">
+    <div id="todo" class="nonselectable fl-col-st">
       <div id="todoListDiv">
         <div class="todoItem">
           <div class="fl-cen-cen">
             <p>MDN 자바스크립트 공부하기</p>
           </div>
           <div class="fl-row-st attContainer">
-            <!-- <div class="att">
-              <div class="category fl-row-st">
+            <div
+              class="att duetime"
+              style="width: 15px; height: 15px; margin: auto 5px"
+            >
+              <!-- <div class="duetime"> -->
+              <div style="width: 15px; height: 15px; margin: auto 5px">
+                <!-- id="clockSvg" -->
                 <svg
-                  id="checkSvg"
                   class="iconClickable"
-                  width="17"
-                  height="17"
                   xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
                   viewBox="0 0 24 24"
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
                   fill="white"
                 >
                   <path
-                    d="M24 6.278l-11.16 12.722-6.84-6 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.278zm-22.681 5.232l6.835 6.01-1.314 1.48-6.84-6 1.319-1.49zm9.278.218l5.921-6.728 1.482 1.285-5.921 6.756-1.482-1.313z"
+                    d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 12v-6h-2v8h7v-2h-5z"
                   />
                 </svg>
-                <p>JavaScript</p>
               </div>
-            </div> -->
-            <div class="att">
-              <div class="duetime">
-                <div style="width: 15px; height: 15px; margin: auto 5px">
-                  <svg
-                    id="clockSvg"
-                    class="iconClickable"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="white"
-                  >
-                    <path
-                      d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 12v-6h-2v8h7v-2h-5z"
-                    />
-                  </svg>
-                </div>
 
-                <p>Today</p>
-              </div>
+              <p>Today</p>
+              <!-- </div> -->
             </div>
           </div>
         </div>
@@ -159,90 +213,87 @@
         <div class="todoItem"></div>
       </div>
 
-      <div id="todoBar" class="nonselectable">
-        <div id="leftBar">
-          <div class="icon">
-            <svg
-              id="clockSvg"
-              class="iconClickable"
-              xmlns="http://www.w3.org/2000/svg"
-              width="50"
-              height="50"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 12v-6h-2v8h7v-2h-5z"
-              />
-            </svg>
+      <!-- <div id="leftBar">
+        <div class="icon">
+          <details>
+            <summary>
+              <svg
+                id="clockSvg"
+                class="iconClickable"
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 12v-6h-2v8h7v-2h-5z"
+                />
+              </svg>
 
-            <svg
-              class="dot"
-              xmlns="http://www.w3.org/2000/svg"
-              width="7"
-              height="7"
-              viewBox="0 0 24 24"
-              style="display: none"
-            >
-              <circle cx="12" cy="12" r="12" />
-            </svg>
-          </div>
-
-          <div class="icon">
-            <svg
-              id="checkSvg"
-              class="iconClickable"
-              width="50"
-              height="50"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-            >
-              <path
-                d="M24 6.278l-11.16 12.722-6.84-6 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.278zm-22.681 5.232l6.835 6.01-1.314 1.48-6.84-6 1.319-1.49zm9.278.218l5.921-6.728 1.482 1.285-5.921 6.756-1.482-1.313z"
-              />
-            </svg>
-
-            <svg
-              id="checkDot"
-              class="dot"
-              xmlns="http://www.w3.org/2000/svg"
-              width="7"
-              height="7"
-              viewBox="0 0 24 24"
-            >
-              <circle cx="12" cy="12" r="12" />
-            </svg>
-          </div>
+              <svg
+                class="dot"
+                xmlns="http://www.w3.org/2000/svg"
+                width="7"
+                height="7"
+                viewBox="0 0 24 24"
+                style="display: none"
+              >
+                <circle cx="12" cy="12" r="12" />
+              </svg>
+            </summary>
+            <div id="selectTime"></div>
+          </details>
         </div>
-
-        <input
-          type="text"
-          name=""
-          id="newTodo"
-          placeholder="할 일을 입력하세요.."
-        />
+      </div> -->
+      <div id="todoBar" class="nonselectable">
+        <form id="todoAddForm" class="fl-cen-cen">
+          <input
+            type="text"
+            name=""
+            id="newTodo"
+            placeholder="할 일을 입력하세요.."
+            autocomplete="off"
+          />
+        </form>
 
         <div id="rightBar">
           <div class="icon">
-            <svg
-              id="clearSvg"
-              class="iconClickable"
-              width="40"
-              height="40"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-            >
-              <path
-                d="M5.662 23l-5.369-5.365c-.195-.195-.293-.45-.293-.707 0-.256.098-.512.293-.707l14.929-14.928c.195-.194.451-.293.707-.293.255 0 .512.099.707.293l7.071 7.073c.196.195.293.451.293.708 0 .256-.097.511-.293.707l-11.216 11.219h5.514v2h-12.343zm3.657-2l-5.486-5.486-1.419 1.414 4.076 4.072h2.829zm.456-11.429l-4.528 4.528 5.658 5.659 4.527-4.53-5.657-5.657z"
-              />
-            </svg>
+            <button id="eraserButton">
+              <svg
+                id="clearSvg"
+                class="iconClickable"
+                width="40"
+                height="40"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              >
+                <path
+                  d="M5.662 23l-5.369-5.365c-.195-.195-.293-.45-.293-.707 0-.256.098-.512.293-.707l14.929-14.928c.195-.194.451-.293.707-.293.255 0 .512.099.707.293l7.071 7.073c.196.195.293.451.293.708 0 .256-.097.511-.293.707l-11.216 11.219h5.514v2h-12.343zm3.657-2l-5.486-5.486-1.419 1.414 4.076 4.072h2.829zm.456-11.429l-4.528 4.528 5.658 5.659 4.527-4.53-5.657-5.657z"
+                />
+              </svg>
+            </button>
+            <button id="submitButton">
+              <svg
+                class="iconClickable"
+                xmlns="http://www.w3.org/2000/svg"
+                width="38"
+                height="38"
+                viewBox="0 0 24 24"
+                style="padding: 11px";
+              >
+                <path
+                  d="M24 0l-6 22-8.129-7.239 7.802-8.234-10.458 7.227-7.215-1.754 24-12zm-15 16.668v7.332l3.258-4.431-3.258-2.901z"
+                />
+              </svg>
+              <span id="xButton">
+                X</span>
+            </button>
           </div>
 
           <div class="icon">
-            <svg
+            <!-- <svg
               id="editSvg"
               class="iconClickable"
               xmlns="http://www.w3.org/2000/svg"
@@ -253,38 +304,85 @@
               <path
                 d="M19.472 6.835l1.708 1.707-9.281 9.378-2.23.472.511-2.169 9.292-9.388zm-.007-2.835l-11.104 11.216-1.361 5.784 5.898-1.248 11.103-11.218-4.536-4.534zm-19.464 15l-.001 2h5v-2h-4.999z"
               />
-            </svg>
+            </svg> -->
+            <input type="date" name="" id="todoAddDate" style="display: none" />
+            <details id="selectTime">
+              <summary class="fl-cen-cen">
+                <svg
+                  id="clockSvg"
+                  class="iconClickable"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="50"
+                  height="50"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 12v-6h-2v8h7v-2h-5z"
+                  />
+                </svg>
+              </summary>
+              <div id="getTimeDiv" class="fl-row-st">
+                <div class="timeItem fl-cen-cen">
+                  <span>Today</span>
+                </div>
+                <div class="timeItem fl-cen-cen">
+                  <span>Tomorrow</span>
+                </div>
+                <input type="date" name="" id="timeInput" min="" />
+              </input>
+              </div>
+            </details>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="todoAdd-border" id="todoAdd">
-      <input
-        id="todoAddInput"
-        type="text"
-        size="20"
-        placeholder="할 일을 입력하세요..."
-      />
-      <div
-        class="help"
-        style="display: inline-block; width: 80px; height: 80px"
-      >
-        <div id="todoAddEnter">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="35"
-            height="35"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M24 0l-6 22-8.129-7.239 7.802-8.234-10.458 7.227-7.215-1.754 24-12zm-15 16.668v7.332l3.258-4.431-3.258-2.901z"
-            />
-          </svg>
-          <!-- <img src="./iconmonstr-paper-plane-1.svg" alt="" /> -->
+    <!-- <svg
+      class="dot"
+      xmlns="http://www.w3.org/2000/svg"
+      width="7"
+      height="7"
+      viewBox="0 0 24 24"
+      style="display: none"
+    >
+      <circle cx="12" cy="12" r="12" />
+    </svg> -->
+    <!-- <form id="todoAddForm" action="">
+      <div class="todoAdd-border" id="todoAdd">
+        <input
+          id="todoAddInput"
+          type="text"
+          size="20"
+          placeholder="할 일을 입력하세요..."
+        />
+        <div
+          class="help"
+          style="display: inline-block; width: 80px; height: 80px"
+        >
+          <button id="todoAddEnter" type="submit">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M24 0l-6 22-8.129-7.239 7.802-8.234-10.458 7.227-7.215-1.754 24-12zm-15 16.668v7.332l3.258-4.431-3.258-2.901z"
+              />
+            </svg>
+          </button>
         </div>
       </div>
-    </div>
+    </form> -->
+    <!-- <img src="./iconmonstr-paper-plane-1.svg" alt="" /> -->
+
+    <iframe
+      id="setUserNameIframe"
+      src="./setUserName/setUserName.html"
+      frameborder="0"
+      onload="this.width=document.body.offsetWidth;this.height=document.body.offsetHeight;"
+      style="display: none"
+    ></iframe>
 
     <script type="module" src="./app.js"></script>
   </body>

@@ -1,3 +1,5 @@
+@import "./animation.css";
+
 header {
   display: flex;
   flex-direction: row;
@@ -5,14 +7,18 @@ header {
   align-items: center;
 
   width: 100%;
-  height: 80px;
+  /* height: 10px; */
+  height: 7vh;
   margin-bottom: 0px;
 }
 
 .headerDiv {
+  top: 0;
   margin: 10px 15px auto;
   background-color: white;
 }
+
+/* WEATHER */
 
 #weatherDiv {
   width: 150px;
@@ -28,6 +34,36 @@ header {
   margin-top: 5px;
 }
 
+.blinkFast {
+  animation-name: blinking;
+  animation-duration: 0.05s;
+  /* animation-iteration-count: 1; */
+}
+
+.rotate {
+  fill: rgba(255, 255, 255, 0.5);
+  animation-name: rotation;
+  animation-duration: 0.6s;
+  animation-iteration-count: 1;
+  animation-delay: 0.3s;
+}
+
+#refreshIcon {
+  margin: 6px auto;
+}
+#refreshIcon:hover {
+  fill: rgba(255, 255, 255, 0.8);
+}
+#refreshIcon:active {
+  fill: rgba(255, 255, 255, 0.2);
+}
+/* #refreshIcon:active:after {
+  fill: red;
+  animation: rotation 0.6s;
+} */
+
+/* GREETING */
+
 .greetingDiv {
   display: flex;
   flex-direction: row-reverse;
@@ -37,7 +73,7 @@ header {
   width: 400px;
   height: 50px;
   padding-top: 0px;
-  margin: 8px;
+  /* margin: 8px; */
   margin-right: 12px;
   background-color: rgba(255, 255, 255, 0);
   border-radius: 10px;
@@ -49,7 +85,7 @@ header {
   color: white;
 } */
 
-.greetingDiv div {
+.greetingDiv > div {
   /* width: 90px;
   height: 42px; */
 
@@ -77,47 +113,25 @@ header {
   border: none;
 }
 
-/* .greetingDiv details:not(:focus-within) .detailsContent {
+/* .greetingDiv details:not(:focus-within) .detailsContent:not(:focus-within) {
+  visibility: hidden;
+} */
+/* #menuSvg:not(:focus) #detailsDots:not(:focus) {
   visibility: hidden;
 } */
 /* .greetingDiv details:focus-within .detailsContent {
   visibility: visible;
 } */
 
-.detailsContent {
-  position: absolute;
-  /* width: calc(100%-40px); */
-  width: 220px;
-  height: 300px;
-  background-color: rgba(255, 255, 255, 0.9);
-  display: flex;
-  /* margin-left: -20px; */
-  right: -7px;
-  border-radius: 15px;
-}
-
-#detailsDots {
-  margin-top: 6px;
-  right: -50px;
-}
-#detailsDots::before {
-  position: absolute;
-  bottom: 100%;
-  left: 67.3%;
-  /* margin-top: -10px; */
-  content: "";
-  /* width: 40px;
-  height: 10px; */
-  border-width: 9px;
-  border-style: solid;
-  border-color: transparent transparent rgba(255, 255, 255, 0.9) transparent;
-}
-
 #greetingText {
   font-family: "Imprima", sans-serif;
-  font-size: 18px;
+  /* font-size: 18px; */
+  /* font-size: 1.5vw; */
+  /* font-size: 2vh; */
   color: white;
-  margin: 3px 10px 6px auto;
+  /* margin: 3px 10px 6px auto; */
+  /* margin: 0.3vh 1vh 0.6vh auto; */
+  margin: 0.3vh 1vh 0.3vh auto;
 }
 
 #settingSvg {
@@ -150,69 +164,155 @@ header {
 .menuSvg:active {
   background-color: rgba(255, 255, 255, 0.4);
 }
+
 /* transition: clickIcon 3s 1s; */
 
-@keyframes clickIcon {
-  50% {
-    /* background-color: rgba(255, 255, 255, 0.4); */
-    /* background-color: red; */
-    background-color: black;
-    width: 100px;
-    height: 100px;
-  }
+.detailsContent {
+  position: absolute;
+  /* width: calc(100%-40px); */
+  width: 200px;
+  height: 180px;
+  background-color: rgba(255, 255, 255, 0.9);
+  /* background-color: yellow; */
+  display: flex;
+  /* margin-left: -20px; */
+  right: -7px;
+  border-radius: 15px;
+  /* border: transparent; */
 }
 
-@keyframes rotation {
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
+#detailsDots {
+  margin-top: 6px;
+  right: -50px;
+  box-shadow: 0 0 0 0.1em #754f24;
+}
+#detailsDots::before {
+  position: absolute;
+  bottom: 100%;
+  left: 62%;
+  /* margin-top: -10px; */
+  content: "";
+  /* width: 40px;
+  height: 10px; */
+  border-width: 9px;
+  border-style: solid;
+  border-color: transparent transparent rgba(255, 255, 255, 0.9) transparent;
 }
 
-@keyframes blinking {
-  from {
-    opacity: 1;
-    /* background-color: green; */
-    /* color: green; */
-    /* transform: rotate(360deg); */
-  }
-  50% {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-    /* background-color: red; */
-    /* color: red; */
-    /* transform: rotate(0deg); */
-  }
+/* #detailsDots > div { */
+.detailsContent > div {
+  width: 100%;
+  height: 100%;
+  /* background-color: green; */
+  padding: 0;
+  padding-top: 3px;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.blinkFast {
-  animation-name: blinking;
-  animation-duration: 0.05s;
-  /* animation-iteration-count: 1; */
+.dotsMenuItem {
+  /* background-color: red; */
+  /* width: 100px;
+  height: 10px; */
+  margin: 5px 0 0;
+  width: 95%;
+  height: 20.5%;
+  border-radius: calc(0.7em);
+}
+.dotsMenuItem:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
-.rotate {
-  fill: rgba(255, 255, 255, 0.5);
-  animation-name: rotation;
-  animation-duration: 0.6s;
-  animation-iteration-count: 1;
-  animation-delay: 0.3s;
+/* .dotsMenuItem:active {
+  background-color: rgba(0, 0, 0, 0.6);
 }
-
-#refreshIcon {
-  margin: 6px auto;
-}
-#refreshIcon:hover {
-  fill: rgba(255, 255, 255, 0.8);
-}
-#refreshIcon:active {
-  fill: rgba(255, 255, 255, 0.2);
-}
-/* #refreshIcon:active:after {
-  fill: red;
-  animation: rotation 0.6s;
+.dotsMenuItem:not(._modeSelected):active span {
+  color: rgba(255, 255, 255, 0.9);
 } */
+
+.dotsMenuItem label {
+  width: 80%;
+  /* width: 100%; */
+  color: #3b2812;
+  font-size: 0.9em;
+  /* font-family: "Ubuntu", sans-serif; */
+  font-family: "Inter", sans-serif;
+  /* text-align: center; */
+  margin: 0 auto;
+}
+.dotsMenuItem label span {
+  padding-left: 0.3em;
+}
+
+.dotsMenuItem input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+._modeSelected,
+._modeSelected:hover,
+._modeSelected:active {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+._modeSelected span,
+._modeSelected:hover span,
+._modeSelected:active span {
+  color: black;
+}
+
+.settingItem {
+  margin: 5px 0 0;
+  width: 95%;
+  height: 17%;
+  position: relative;
+  /* background-color: red; */
+  /* font-family: "Imprima", sans-serif; */
+  font-family: "Noto Sans KR", sans-serif;
+  /* border-bottom: 0.5px solid black; */
+  font-size: 15px;
+  /* overflow-x: auto; */
+  overflow-y: visible;
+}
+.settingItem:hover {
+  background-color: gray;
+}
+.settingItem:active {
+  background-color: black;
+  color: gray;
+  /* color: white; */
+}
+/* border-radius: calc(0.5em); */
+
+#detailsSetting {
+  margin-top: 3px;
+  height: 15em;
+  width: 14em;
+  border-radius: 3px;
+  /* font-size: 0.85em; */
+  z-index: 999;
+}
+
+.setting_onlyText span {
+  padding-left: 0.8em;
+}
+
+@media screen and (max-width: 1000px) {
+  #greetingText {
+    font-size: 15px;
+  }
+  #weatherDiv p {
+    font-size: 17px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #greetingText {
+    font-size: 18px;
+  }
+}

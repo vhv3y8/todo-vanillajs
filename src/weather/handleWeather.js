@@ -1,17 +1,11 @@
 import { Consts } from "../Consts.js";
 
 function init() {
-  document.querySelector("#refreshIcon").addEventListener("click", function () {
-    setTimeout(() => {
-      updateWeather();
-    }, 9000);
-  });
-
   // flow start
-  updateWeather();
+  initWeather();
 }
 
-function updateWeather() {
+function initWeather() {
   console.log("Updating Weather.");
   const weatherDiv = document.querySelector("#weatherDiv");
 
@@ -37,6 +31,29 @@ function updateWeather() {
   }
 }
 
+function getWeather() {
+  const coordsStr = localStorage.getItem(Consts.COORDS);
+  const coordsObj = JSON.parse(coordsStr);
+  if (coordsObj !== null) {
+    console.log(coordsObj);
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${coordsObj.latitude}&lon=${coordsObj.longitude}&appid=${Consts.API_KEY}&units=metric`
+    ).then(function (response) {
+      // console.log("hey");
+      console.log(typeof response);
+      return response.json();
+    });
+    // .then(function (json) {
+    //   console.log(json);
+    //   return [json.name, json.main.temp];
+    // });
+  } else {
+    navigator.geolocation.getCurrentPosition(gotPosition, () => {
+      console.log("Getting geo location Failed. Try again.");
+    });
+  }
+}
+
 function gotPosition(pos) {
   const latitude = pos.coords.latitude;
   const longitude = pos.coords.longitude;
@@ -48,6 +65,14 @@ function gotPosition(pos) {
       longitude,
     })
   );
+
+  // initWeather();
 }
 
-export { init };
+// document.querySelector("#refreshIcon").addEventListener("click", function () {
+//   setTimeout(() => {
+//     initWeather();
+//   }, 9000);
+// });
+
+export { init, getWeather, gotPosition };

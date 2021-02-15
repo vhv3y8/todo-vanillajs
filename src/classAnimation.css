@@ -1,0 +1,57 @@
+@import "./animation.css";
+
+._removeTodoItemEffect,
+._removeTodoItemEffect div,
+._removeTodoItemEffect p {
+  /* border: none; */
+  opacity: 0;
+  transition: opacity 0.5s;
+  animation: todoItemRemove 1s 0.5s forwards;
+}
+
+._addTodoItemEffect,
+._addTodoItemEffect div,
+._addTodoItemEffect p {
+  opacity: 0;
+  transition: opacity 0.5s;
+  animation: todoItemAdd 0.5s 0s forwards;
+}
+
+._settingSuccess,
+._settingSuccess:hover,
+._settingSuccess:active {
+  /* background-color: green; */
+  animation: green 1s 0.3s;
+}
+
+._settingFailure,
+._settingFailure:hover,
+._settingFailure:active {
+  animation: red 1s 0.3s;
+}
+
+#newTodo._todoFocusInput {
+  width: 95%;
+  /* margin-left: 2%; */
+  margin-left: 0.5em;
+  /* transition setting at #newTodo */
+}
+
+#rightBar._todoFocusBarWidth {
+  /* width: 20%; */
+  /* height: 100%; */
+  /* background-color: green; */
+}
+
+#clockSvg._todoFocusIconShow,
+#submitButton._todoFocusIconShow {
+  visibility: visible;
+  opacity: 1;
+  /* height: 100%; */
+}
+#eraserButton._todoFocusIconHide {
+  opacity: 0;
+  /* height: 0; */
+  /* visibility: hidden; */
+  /* background-color: red; */
+}

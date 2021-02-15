@@ -1,7 +1,7 @@
 import { init as greetingInit } from "../greeting/handleGreeting.js";
 import { Consts } from "../Consts.js";
 
-function setUserName() {
+function setUserName(userName) {
   console.log("executing setUserName.");
 
   // get inner iframe document
@@ -10,6 +10,11 @@ function setUserName() {
 
   // show modal page
   modal.style.display = "block";
+
+  // if userName exists => opened by 'get/change name' button at settings
+  if (userName !== undefined) {
+    innerModal.querySelector("#getName > input").value = userName;
+  }
 
   // add submit and cancel event listener
   innerModal.querySelector("#getName").addEventListener("submit", function (e) {
@@ -33,10 +38,12 @@ function setUserName() {
     // close modal page
     modal.style.display = "none";
     console.log(modal);
-    localStorage.setItem(Consts.NO_NAME, true);
+    if (localStorage.getItem(Consts.USER_NAME) === null) {
+      localStorage.setItem(Consts.NO_NAME, true);
 
-    // update greeting message
-    greetingInit();
+      // update greeting message
+      greetingInit();
+    }
   });
 }
 

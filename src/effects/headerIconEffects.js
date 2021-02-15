@@ -1,9 +1,7 @@
-const greetingMenuIcons = document.getElementsByClassName("menuSvg"),
-  weatherRefreshIcon = document.getElementById("refreshIcon");
+const greetingMenuIcons = document.getElementsByClassName("menuSvg");
 
 function init() {
   // console.log(greetingMenuIcons);
-
   // for (let i = 0; i < greetingMenuIcons.length; i++) {
   //   let element = greetingMenuIcons[i];
   //   element.addEventListener("mouseover", function () {
@@ -18,23 +16,23 @@ function init() {
   //     // setTimeout(function () {
   //     //   element.style.backgroundColor = "";
   //     // }, 2000);
-
   //     // open things
   //   });
   // }
-
-  // weather refresh icon
-  weatherRefreshIcon.addEventListener("click", function () {
-    weatherRefreshIcon.classList.add("rotate");
-    setTimeout(() => {
-      weatherRefreshIcon.classList.remove("rotate");
-      const weatherText = document.querySelector("#weatherDiv p");
-      weatherText.classList.add("blinkFast");
-      setTimeout(() => {
-        weatherText.classList.remove("blinkFast");
-      }, 200);
-    }, 800);
-  });
 }
 
-export { init };
+function giveSuccessEffect(elem) {
+  elem.classList.add("_settingSuccess");
+  setTimeout(() => {
+    elem.classList.remove("_settingSuccess");
+  }, 1000);
+}
+
+function giveFailureEffect(elem) {
+  elem.classList.add("_settingFailure");
+  setTimeout(() => {
+    elem.classList.remove("_settingFailure");
+  }, 1000);
+}
+
+export { init, giveSuccessEffect, giveFailureEffect };

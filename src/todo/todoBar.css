@@ -5,11 +5,11 @@
   align-items: center;
 
   /* width: 1400px; */
-  width: 50%;
+  width: 80vh;
   height: 90px;
   margin: auto;
-  margin-top: 60px;
-  margin-bottom: 150px;
+  /* margin-top: 60px;
+  margin-bottom: 150px; */
   /* margin-top: 400px; */
   /* background-color: #e1c39d; */
   /* background-color: rgba(219, 183, 138, 0.4); */
@@ -20,14 +20,42 @@
   /* border-top: 10px solid black; */
 }
 
-#todoBar .iconClickable {
+#todoBar form {
+  margin: 0;
+  padding: 0;
+  /* width: 75%; */
+}
+
+.iconClickable {
   padding: 5px;
   /* background-color: #d9d9d9; */
   /* background-color: #f9f3eb; */
   background-color: #f9f3eb;
+  position: relative;
+  /* position: absolute; */
 
   border-radius: 8px;
+
+  transition: all 0.1s;
 }
+.iconClickable:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+.iconClickable::after:hover {
+  content: "asdfasdfasdf";
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  background-color: green;
+}
+.iconClickable:active {
+  background: rgba(0, 0, 0, 0.5);
+  fill: rgba(255, 255, 255, 0.2);
+}
+/* .iconClickable:hover .iconClickable svg {
+} */
 
 #todoBar #clearSvg {
   padding: 10px;
@@ -51,7 +79,7 @@
   fill: black;
 }
 
-#leftBar {
+/* #leftBar {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -63,25 +91,219 @@
   padding: 0 5px;
 }
 
+#leftBar details,
+#leftBar summary {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  outline: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+#leftBar summary::-webkit-details-marker {
+  display: none;
+} */
+
+#newTodo {
+  border: none;
+  outline: none;
+  /* width: 350px; */
+  /* width: 80%; */
+
+  /* width: 95%; */
+  /* width: 120%; */
+  width: 50%;
+  height: 65px;
+  /* margin: 20px; */
+  margin: auto 0 auto 2%;
+  /* padding-left: 20px; */
+  padding-left: 3%;
+
+  font-family: "Poor Story", cursive;
+  font-size: 25px;
+  transition: width 0.65s;
+}
+#newTodo:focus {
+  background-color: rgba(230, 230, 230, 0.9);
+}
+
+#selectTime {
+  position: absolute;
+  width: 500px;
+  height: 55px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+
+  bottom: 85px;
+  left: -10px;
+}
+
 #rightBar {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-start;
   align-items: center;
+  position: relative;
 
   height: 90px;
-  width: 250px;
+  width: 25%;
+  /* width: 10%; */
   padding: 0 5px;
+
+  transition: width 0.5s;
 }
 
-#newTodo {
+#rightBar button {
+  background-color: transparent;
   border: none;
   outline: none;
-  width: 350px;
-  height: 65px;
-  margin: 20px;
-  padding-left: 20px;
+  padding: 0;
+  margin: 0;
+}
 
-  font-family: "Poor Story", cursive;
-  font-size: 25px;
+#clockSvg {
+  visibility: hidden;
+  opacity: 0;
+
+  transition: opacity 1s;
+}
+
+#selectTime {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  background-color: transparent;
+}
+#selectTime summary {
+  border: none;
+  outline: none;
+}
+#selectTime summary::-webkit-details-marker {
+  display: none;
+}
+
+#selectTime > div {
+  position: absolute;
+  width: 470px;
+  height: 60px;
+
+  bottom: 100%;
+  right: -100%;
+
+  margin-bottom: 25px;
+
+  border-radius: 5px;
+  /* background-color: red; */
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#getTimeDiv {
+  /* visibility: hidden; */
+}
+#getTimeDiv::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 15%;
+  /* width: 10px;
+  height: 10px; */
+  /* background-color: red; */
+  border-width: 15px;
+  border-style: solid;
+  /* border-radius: 15px; */
+  border-color: rgba(255, 255, 255, 0.8) transparent transparent transparent;
+}
+.timeItem {
+  width: 7em;
+  margin: auto 0.25em;
+  height: 80%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 0.3em;
+
+  font-family: "Poor story", cursive;
+  font-size: 21px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+#okButton {
+  height: 80%;
+  width: 3em;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+#timeInput {
+  height: 70%;
+  width: 11em;
+  text-align: center;
+}
+
+#submitButton {
+  position: absolute;
+  visibility: hidden;
+  /* top: 0;
+  left: 0; */
+  opacity: 0;
+  /* height: 0; */
+  transition: opacity 1s, height 1s;
+}
+
+#xButton {
+  position: absolute;
+  top: 20%;
+  left: 130%;
+  width: 60%;
+  height: 60%;
+  border-radius: 10%;
+  /* background-color: red; */
+
+  font-family: "Imprima", sans-serif;
+  font-size: 30px;
+  color: white;
+  background-color: rgba(255, 0, 0, 0.8);
+}
+#xButton:hover {
+  background-color: rgba(255, 0, 0, 1);
+}
+
+#eraserButton {
+  opacity: 1;
+  transition: opacity 1s, height 1s;
+}
+
+._timeSelected {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (max-width: 1600px) {
+  #newTodo {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  #todoBar form {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #todoBar form {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  #rightBar {
+    width: 150px;
+  }
+  #todoBar form {
+    width: 100%;
+  }
 }
